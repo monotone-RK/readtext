@@ -1,6 +1,6 @@
 readtext
 ========
-Read Text Written in Python v1.0
+Read Text Written in Python v1.1
 
 Last updated 2014.02.11
 
