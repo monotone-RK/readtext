@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #*****************************************************************************/
-# Read Text Written in Python Ver:1.0                   2014.02.11 monotone-RK/
+# Read Text Written in Python Ver:1.1                   2014.02.11 monotone-RK/
 #*****************************************************************************/
 import os
 import sys
@@ -25,19 +25,22 @@ def readText(textfiles):
         print "Read count:", readcnt
         print "Date:", datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")
         tfile = open(textfile, "r")
-        text = tfile.readlines()
+        text = tfile.read()
         tfile.close()
         print "Contents"
         print "=" * 80
-        for line in text:
-            print line,
-            subprocess.call('say "%s"' % (line), shell=True)
+        print text,
         print "=" * 80
+        sys.stdout.write("Now reading...")
+        sys.stdout.flush()
+        subprocess.call('say "%s"' % (text), shell=True)
+        sys.stdout.write("Finish\n")
+        sys.stdout.flush()
         print
 
 argparser = argparse.ArgumentParser()
 argparser.add_argument("-v", "--version", action="version",
-                       version="Read Text Written in Python v1.0  last upated:2014.02.11")
+                       version="Read Text Written in Python v1.1  last upated:2014.02.11")
 argparser.add_argument("textfile", metavar="textfile", nargs="+",
                        help="text file you want to make be read by say command")
 args = argparser.parse_args()
