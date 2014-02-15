@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #*****************************************************************************/
-# Read Text Written in Python Ver:1.1                   2014.02.11 monotone-RK/
+# Read Text Written in Python Ver:1.2                   2014.02.16 monotone-RK/
 #*****************************************************************************/
 import os
+import re
 import sys
 import datetime
 import argparse
@@ -33,14 +34,14 @@ def readText(textfiles):
         print "=" * 80
         sys.stdout.write("Now reading...")
         sys.stdout.flush()
-        subprocess.call('say "%s"' % (text), shell=True)
+        subprocess.call('say "%s"' % (re.sub(r"\n", " ", text)), shell=True)
         sys.stdout.write("Finish\n")
         sys.stdout.flush()
         print
 
 argparser = argparse.ArgumentParser()
 argparser.add_argument("-v", "--version", action="version",
-                       version="Read Text Written in Python v1.1  last upated:2014.02.11")
+                       version="Read Text Written in Python v1.2 last upated:2014.02.16")
 argparser.add_argument("textfile", metavar="textfile", nargs="+",
                        help="text file you want to make be read by say command")
 args = argparser.parse_args()
