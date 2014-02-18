@@ -1,8 +1,8 @@
 readtext
 ========
-Read Text Written in Python v1.1
+Read Text Written in Python v1.2
 
-Last updated 2014.02.11
+Last updated 2014.02.16
 
 ###Usage
 	python readtext.py [-h] [-v] textfile [textfile ...]
